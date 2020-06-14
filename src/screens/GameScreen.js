@@ -11,7 +11,7 @@ import { shuffledDeck } from "../data/cards";
 import { Context as GameContext } from "../context/gameContext";
 import CardBack from "../components/CardBack";
 
-import AppLogo from "../assets/images/app_logo.svg";
+import { FontAwesome5 } from '@expo/vector-icons';
 
 import {
     colors,
@@ -24,8 +24,6 @@ import CardFlip from "react-native-card-flip";
 function GameScreen(props) {
     const { state: { deck }, setDeck } = React.useContext(GameContext);
     let card;
-
-    console.log(deck);
 
     React.useEffect(() => {
         const deck = shuffledDeck();
@@ -55,7 +53,11 @@ function GameScreen(props) {
 GameScreen.navigationOptions = () => {
     return {
         title: "Game",
-        tabBarIcon: <AppLogo height={24} width={24} />
+        tabBarIcon: ({tintColor}) => {
+            return (
+                <FontAwesome5 name="glass-whiskey" size={24} color={tintColor} />
+            )
+        }
     };
 };
 

@@ -19,7 +19,15 @@ function GameHistoryScreen(props) {
 GameHistoryScreen.navigationOptions = () => {
     return {
         title: "History",
-        tabBarIcon: <MaterialIcons name="history" size={24} color="black" />
+        tabBarIcon: ({tintColor}) => {
+            return (
+                <MaterialIcons
+                    name="history"
+                    size={24}
+                    color={tintColor}
+                />
+            );
+        }
     };
 };
 

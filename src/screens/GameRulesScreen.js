@@ -46,7 +46,15 @@ function GameRulesScreen() {
 GameRulesScreen.navigationOptions = () => {
     return {
         title: "Rules",
-        tabBarIcon: <MaterialIcons name="settings" size={24} color="black" />
+        tabBarIcon: ({tintColor }) => {
+            return (
+                <MaterialIcons
+                    name="settings"
+                    size={24}
+                    color={tintColor}
+                />
+            )
+        }
     };
 };
 
