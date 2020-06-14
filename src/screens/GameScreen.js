@@ -7,13 +7,17 @@ import { SafeAreaView } from "react-navigation";
 import AppLogo from "../assets/images/app_logo.svg";
 
 import { shuffledDeck } from "../data/cards";
-
+import {Context as GameContext} from "../context/gameContext";
+import { startGame } from "../actions/GameActions";
 
 function GameScreen(props) {
+    const {state: {deck}, setDeck} = React.useContext(GameContext);
+
+    console.log(deck);
 
     React.useEffect(() => {
         const deck = shuffledDeck();
-        // console.log(deck);
+        setDeck(deck);
     },[])
 
     return (

@@ -3,6 +3,7 @@ import { AppLoading } from "expo";
 import * as Font from "expo-font";
 
 import { enableScreens } from "react-native-screens";
+import {Provider as GameProvider} from "./src/context/gameContext";
 import AppNavigation from "./src/navigation/AppNavigation";
 
 enableScreens();
@@ -27,6 +28,8 @@ export default function App() {
     }
 
     return (
-        <AppNavigation />
+        <GameProvider>
+            <AppNavigation />
+        </GameProvider>
     );
 }

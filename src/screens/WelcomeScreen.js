@@ -5,13 +5,23 @@ import {
     TouchableOpacity,
     View
 } from "react-native";
+import { Context as GameContext } from "../context/gameContext";
+
 import {
     colors,
     sizes
 } from "../constants/vars";
+
 import AppLogo from "../assets/images/app_logo.svg";
 
 function WelcomeScreen({ navigation }) {
+    const {state: {gameIsStarted}, startGame} = React.useContext(GameContext);
+
+    const handleGameStart = () => {
+        startGame();
+        navigation.navigate("Game")
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -22,11 +32,11 @@ function WelcomeScreen({ navigation }) {
             </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("Game")}
+                    onPress={handleGameStart}
                     style={styles.button}
                 >
                     <Text style={styles.text}>
-                        Start a new game
+                        {!gameIsStarted ? "Start a new game" : "Resume"}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
