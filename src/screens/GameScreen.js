@@ -4,7 +4,7 @@ import {
     Text
 } from "react-native";
 import { SafeAreaView } from "react-navigation";
-import { MaterialIcons } from '@expo/vector-icons';
+import AppLogo from "../assets/images/app_logo.svg";
 
 import { shuffledDeck } from "../data/cards";
 
@@ -28,7 +28,7 @@ function GameScreen(props) {
 GameScreen.navigationOptions = () => {
     return {
         title: "Game",
-        tabBarIcon: <MaterialIcons name="history" size={24} color="black" />
+        tabBarIcon: <AppLogo height={24} width={24} />
     }
 }
 

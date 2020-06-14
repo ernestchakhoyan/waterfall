@@ -9,24 +9,31 @@ import {
     colors,
     sizes
 } from "../constants/vars";
+import AppLogo from "../assets/images/app_logo.svg";
 
 function WelcomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
-                <Text style={styles.title}>Welcome to WaterFall Game!</Text>
-                <View>
-                    <Text>Logo</Text>
+                <Text style={styles.title}>Welcome to Waterfall Game!</Text>
+                <View style={styles.logo}>
+                    <AppLogo height={80} width={80}/>
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate("Game")}>
-                    <Text style={styles.button}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("Game")}
+                    style={styles.button}
+                >
+                    <Text style={styles.text}>
                         Start a new game
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("GameRules")}>
-                    <Text style={styles.button}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("GameRules")}
+                    style={styles.button}
+                >
+                    <Text style={styles.text}>
                         See the rules
                     </Text>
                 </TouchableOpacity>
@@ -42,6 +49,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.primarySoft,
+        paddingVertical: sizes.spacer * 4
     },
     content: {
         flex: 1,
@@ -53,7 +61,7 @@ const styles = StyleSheet.create({
         fontSize: sizes.titleFontSizeMd,
         marginVertical: sizes.spacer,
         fontFamily: "roboto-regular",
-        color: "#fff"
+        color: "#000"
     },
     buttonContainer: {
         width: "100%",
@@ -66,14 +74,18 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        textAlign: "center",
-        textTransform: "uppercase",
+        justifyContent: "center",
         backgroundColor: "#000",
         borderColor: "#000",
-        color: "#fff",
         padding: sizes.spacer,
         borderRadius: 20,
         marginTop: sizes.spacer
+    },
+    text: {
+        color: "#fff",
+        textAlign: "center",
+        textTransform: "uppercase",
+        fontFamily: "roboto-regular",
     }
 });
 
