@@ -1,6 +1,7 @@
 import React from "react";
 import {
     StyleSheet,
+    TouchableOpacity,
     View
 } from "react-native";
 import { SafeAreaView } from "react-navigation";
@@ -18,8 +19,11 @@ import {
 } from "../constants/vars";
 import CardFront from "../components/CardFront";
 
+import CardFlip from "react-native-card-flip";
+
 function GameScreen(props) {
     const { state: { deck }, setDeck } = React.useContext(GameContext);
+    let card;
 
     console.log(deck);
 
@@ -34,8 +38,14 @@ function GameScreen(props) {
                 colors={[ `${colors.primarySoft}`, `${colors.primary}` ]}
             >
                 <View style={styles.container}>
-                    {/*<CardBack />*/}
-                    <CardFront />
+                    <CardFlip style={styles.cardContainer} ref={(crd) => card = crd}>
+                        <TouchableOpacity style={styles.card} onPress={() => card.flip()}>
+                            <CardBack />
+                        </TouchableOpacity>
+                        <View style={styles.card}>
+                            <CardFront />
+                        </View>
+                    </CardFlip>
                 </View>
             </LinearGradient>
         </SafeAreaView>
@@ -52,6 +62,9 @@ GameScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
     container: {
         padding: sizes.spacer * 4
+    },
+    cardContainer: {
+        height: "100%"
     }
 });
 
