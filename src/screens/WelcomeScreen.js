@@ -45,7 +45,6 @@ function WelcomeScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: sizes.spacer,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.primarySoft,

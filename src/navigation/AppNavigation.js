@@ -25,6 +25,14 @@ const AppNavigation = createStackNavigator({
                 headerShown: true
             }
         },
+    },{
+        backBehavior: "history",
+        tabBarOptions: {
+                style: {
+                    height: 55
+                },
+            activeTintColor: colors.primarySoft,
+        }
     }),
 }, {
     defaultNavigationOptions: {

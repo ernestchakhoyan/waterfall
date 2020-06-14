@@ -13,7 +13,7 @@ function GameScreen(props) {
 
     React.useEffect(() => {
         const deck = shuffledDeck();
-        console.log(deck);
+        // console.log(deck);
     },[])
 
     return (
