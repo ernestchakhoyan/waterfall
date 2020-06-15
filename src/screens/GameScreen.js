@@ -16,7 +16,6 @@ import CardSwiper from "../components/CardSwiper";
 
 function GameScreen() {
     const { state: { deck }, setDeck } = React.useContext(GameContext);
-    let card;
 
     React.useEffect(() => {
         const deck = shuffledDeck();
@@ -29,7 +28,7 @@ function GameScreen() {
                 colors={[ `${colors.primarySoft}`, `${colors.primary}` ]}
             >
                 <View style={styles.container}>
-                    <CardSwiper />
+                    <CardSwiper deck={deck || []} />
                 </View>
             </LinearGradient>
         </SafeAreaView>

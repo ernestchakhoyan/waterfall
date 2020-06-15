@@ -9,7 +9,7 @@ function getDeck() {
     {
         for(let x = 0; x < values.length; x++)
         {
-            let card = {Value: values[x], Suit: suits[i]};
+            let card = {value: values[x], suit: suits[i]};
             deck.push(card);
         }
     }

@@ -9,38 +9,75 @@ import {
     sizes
 } from "../constants/vars";
 import Shooter from "../assets/images/shooter_icon.svg";
+import Cognac from "../assets/images/cognac_icon.svg";
+import Margarita from "../assets/images/margarita_icon.svg";
+import Wine from "../assets/images/wine_icon.svg";
+import Beer from "../assets/images/beer_icon.svg";
+import rules from "../data/rules";
 
-function CardFront(props) {
+function CardFront({ card }) {
+    const { value } = card;
+
+    const renderTitle = () => {
+        return rules.find(item => item.value === value).title;
+    };
+
+    const renderIcon = () => {
+        switch (value) {
+            case "A":
+                return (
+                    <View style={styles.icon}>
+                        <Cognac />
+                    </View>
+                );
+            case "K":
+                return (
+                    <View style={styles.icon}>
+                        <Margarita />
+                    </View>
+                );
+            case "Q":
+                return (
+                    <View style={styles.icon}>
+                        <Wine />
+                    </View>
+                );
+            case "J":
+                return (
+                    <View style={styles.icon}>
+                        <Beer />
+                    </View>
+                );
+            default:
+                let array = [];
+                for (let i = 0; i < value; i++) {
+                    array.push(i);
+                }
+
+                return array.map((item) => {
+                    return (
+                        <View
+                            style={styles.icon}
+                            key={`card-icon${item}`}
+                        >
+                            <Shooter />
+                        </View>
+                    );
+                });
+
+        }
+    };
+
     return (
         <View style={styles.container}>
-            <Text style={{ ...styles.cardValue, ...styles.topValue }}>J</Text>
-            <Text style={{ ...styles.cardValue, ...styles.bottomValue }}>J</Text>
+            <Text style={{ ...styles.cardValue, ...styles.topValue }}>{value}</Text>
+            <Text style={{ ...styles.cardValue, ...styles.bottomValue }}>{value}</Text>
 
             <View style={styles.cardLogo}>
-                <View style={styles.icon}>
-                    <Shooter />
-                </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View><View style={styles.icon}>
-                <Shooter />
-            </View>
+                {renderIcon()}
             </View>
             <View>
-                <Text style={styles.cardTitle}>Title</Text>
+                <Text style={styles.cardTitle}>{renderTitle()}</Text>
             </View>
         </View>
     );
@@ -89,11 +126,15 @@ const styles = StyleSheet.create({
         marginHorizontal: sizes.spacer * 2
     },
     icon: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         marginVertical: sizes.spacer,
         width: 40
     },
     cardTitle: {
-        color: "#fff"
+        color: colors.primarySoft,
+        fontSize: sizes.titleFontSizeSm
     }
 });
 
