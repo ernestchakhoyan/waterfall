@@ -8,6 +8,7 @@ import {
     colors,
     sizes
 } from "../constants/vars";
+import Shooter from "../assets/images/shooter_icon.svg";
 
 function CardFront(props) {
     return (
@@ -16,10 +17,30 @@ function CardFront(props) {
             <Text style={{ ...styles.cardValue, ...styles.bottomValue }}>J</Text>
 
             <View style={styles.cardLogo}>
-                <Text>Logo</Text>
+                <View style={styles.icon}>
+                    <Shooter />
+                </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View><View style={styles.icon}>
+                <Shooter />
+            </View>
             </View>
             <View>
-                <Text style={styles.cardDescription}>Description</Text>
+                <Text style={styles.cardTitle}>Title</Text>
             </View>
         </View>
     );
@@ -38,7 +59,7 @@ const styles = StyleSheet.create({
         width: "100%",
         position: "relative",
         shadowColor: "black",
-        shadowOffset: {width: 0, height: 2},
+        shadowOffset: { width: 0, height: 2 },
         shadowRadius: 6,
         shadowOpacity: 0.26,
         elevation: 5,
@@ -59,13 +80,19 @@ const styles = StyleSheet.create({
         right: 15
     },
     cardLogo: {
-        backgroundColor: "#fff",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        alignItems: "center",
         fontFamily: "roboto-regular",
-        height: 150,
-        width: "100%",
+        width: "80%",
         marginHorizontal: sizes.spacer * 2
     },
-    cardDescription: {
+    icon: {
+        marginVertical: sizes.spacer,
+        width: 40
+    },
+    cardTitle: {
         color: "#fff"
     }
 });

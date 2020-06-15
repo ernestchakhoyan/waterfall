@@ -2,16 +2,19 @@ import React from "react";
 import {
     ImageBackground,
     StyleSheet,
-    Text,
+    Image,
     View
 } from "react-native";
-import AppLogo from "../assets/images/app_logo.svg";
+
 
 function CardBack(props) {
     return (
         <View style={styles.container}>
             <ImageBackground source={require("../assets/images/card_bg.jpg")} style={styles.wrapper}>
-                <AppLogo height={80} width={80} />
+                <Image
+                    source={require("../assets/images/app_logo_white.png")}
+                    style={styles.image}
+                />
             </ImageBackground>
         </View>
     );
@@ -40,6 +43,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "100%",
         height: "100%"
+    },
+    image: {
+        width: 90,
+        height: 80
     }
 });
 
