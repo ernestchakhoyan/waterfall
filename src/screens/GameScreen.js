@@ -2,7 +2,8 @@ import React from "react";
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableOpacity
 } from "react-native";
 import { SafeAreaView } from "react-navigation";
 import { LinearGradient } from "expo-linear-gradient";
@@ -11,11 +12,19 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { shuffledDeck } from "../data/cards";
 import { Context as GameContext } from "../context/gameContext";
 
-import { colors } from "../constants/vars";
+import {
+    colors,
+    sizes
+} from "../constants/vars";
 import CardSwiper from "../components/CardSwiper";
 
-function GameScreen() {
-    const { state: { deck }, setDeck } = React.useContext(GameContext);
+function GameScreen({navigation}) {
+    const { state: { deck }, setDeck, endGame } = React.useContext(GameContext);
+
+    const handleNewGame = () => {
+        endGame();
+        navigation.navigate("Welcome");
+    }
 
     React.useEffect(() => {
         const deck = shuffledDeck();
@@ -27,6 +36,12 @@ function GameScreen() {
             <LinearGradient
                 colors={[ `${colors.primarySoft}`, `${colors.primary}` ]}
             >
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={handleNewGame}
+                >
+                    <Text style={styles.text}>New game</Text>
+                </TouchableOpacity>
                 <View style={styles.container}>
                     <CardSwiper deck={deck || []} />
                 </View>
@@ -52,6 +67,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
+        zIndex: -1
     },
     swiperContainer: {
         height: "100%",
@@ -59,6 +75,27 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         height: "100%"
+    },
+    button: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        width: 150,
+        justifyContent: "center",
+        backgroundColor: "#000",
+        borderColor: "#000",
+        padding: sizes.spacer,
+        borderRadius: 4,
+        marginTop: sizes.spacer,
+        position: "absolute",
+        right: sizes.spacer,
+        zIndex: 999999
+    },
+    text: {
+        color: "#fff",
+        textAlign: "center",
+        textTransform: "uppercase",
+        fontFamily: "roboto-regular",
     }
 });
 

@@ -9,16 +9,28 @@ import Swiper from "react-native-deck-swiper";
 import CardFront from "./CardFront";
 import CardBack from "./CardBack";
 import CardFlip from "react-native-card-flip";
+import { Context as GameContext } from "../context/gameContext";
+import { sizes } from "../constants/vars";
 
 function CardSwiper({ deck }) {
+    const { addHistory } = React.useContext(GameContext);
     const [ disabled, setDisabled ] = React.useState(false);
+    const [cardIndex, setCardIndex] =  React.useState(0);
 
     if (deck.length === 0) {
         return (
-            <View>
-                <Text>No Deck</Text>
+            <View style={styles.emptyView}>
+                <Text>No deck</Text>
             </View>
         );
+    }
+
+    const remainingCards = deck.length - cardIndex;
+
+    const handleCardChange = (index) => {
+        setCardIndex(index);
+        const card = deck[index];
+        addHistory(card);
     }
 
     return (
@@ -44,7 +56,10 @@ function CardSwiper({ deck }) {
                         </CardFlip>
                     );
                 }}
-                onSwiped={() => setDisabled(false)}
+                onSwiped={(index) => {
+                    setDisabled(false);
+                    handleCardChange(index);
+                }}
                 onSwipedAll={() => {
                     console.log("onSwipedAll");
                 }}
@@ -57,6 +72,13 @@ function CardSwiper({ deck }) {
                 disableTopSwipe={!disabled}
             >
             </Swiper>
+            <View style={styles.remainingText}>
+                {
+                    remainingCards
+                        ? <Text>{remainingCards} {`card${remainingCards === 1 ? "" : "s"}`} remaining</Text>
+                        : null
+                }
+            </View>
         </View>
     );
 }
@@ -82,7 +104,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "transparent"
     },
-    card: {}
+    remainingText: {
+        position: "absolute",
+        bottom: 0,
+        left: 30
+    },
+    emptyView: {
+        marginTop: sizes.spacer * 3,
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center"
+    }
 });
 
 export default CardSwiper;
