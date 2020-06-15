@@ -27,7 +27,12 @@ const styles = StyleSheet.create({
         borderColor: "#fff",
         borderRadius: 15,
         height: "100%",
-        width: "100%"
+        width: "100%",
+        shadowColor: "black",
+        shadowOffset: {width: 0, height: 2},
+        shadowRadius: 6,
+        shadowOpacity: 0.26,
+        elevation: 5,
     },
     wrapper: {
         display: "flex",

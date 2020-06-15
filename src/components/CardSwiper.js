@@ -16,6 +16,7 @@ function CardSwiper({ props }) {
                  return (
                      <CardFlip style={styles.cardWrapper} ref={(crd) => card = crd}>
                          <TouchableOpacity
+                             style={styles.card}
                              onPress={() => {
                                      card.flip();
                                      setDisabled(true);
@@ -49,7 +50,8 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
+        maxWidth: "80%",
+        width: 400,
         height: "100%",
         maxHeight: "80%",
         backgroundColor: "transparent"
@@ -65,8 +67,7 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent"
     },
     card: {
-        // height: "100%",
-        // width: "100%"
+
     }
 });
 

@@ -36,7 +36,12 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         height: "100%",
         width: "100%",
-        position: "relative"
+        position: "relative",
+        shadowColor: "black",
+        shadowOffset: {width: 0, height: 2},
+        shadowRadius: 6,
+        shadowOpacity: 0.26,
+        elevation: 5,
     },
     cardValue: {
         color: colors.textColor,

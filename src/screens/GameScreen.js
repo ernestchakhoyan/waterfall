@@ -1,21 +1,18 @@
 import React from "react";
 import {
     StyleSheet,
-    TouchableOpacity,
+    Text,
     View
 } from "react-native";
 import { SafeAreaView } from "react-navigation";
 import { LinearGradient } from "expo-linear-gradient";
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from "@expo/vector-icons";
 
 import { shuffledDeck } from "../data/cards";
 import { Context as GameContext } from "../context/gameContext";
-import CardSwiper from "../components/CardSwiper";
 
-import {
-    colors,
-    sizes
-} from "../constants/vars";
+import { colors } from "../constants/vars";
+import CardSwiper from "../components/CardSwiper";
 
 function GameScreen() {
     const { state: { deck }, setDeck } = React.useContext(GameContext);
@@ -42,20 +39,24 @@ function GameScreen() {
 GameScreen.navigationOptions = () => {
     return {
         title: "Game",
-        tabBarIcon: ({tintColor}) => {
+        tabBarIcon: ({ tintColor }) => {
             return (
                 <FontAwesome5 name="glass-whiskey" size={24} color={tintColor} />
-            )
+            );
         }
     };
 };
 
 const styles = StyleSheet.create({
     container: {
-        display: "flex",
+        height: "100%",
         justifyContent: "center",
+        flexDirection: "column",
         alignItems: "center",
-        height: "100%"
+    },
+    swiperContainer: {
+        height: "100%",
+        backgroundColor: "blue"
     },
     cardContainer: {
         height: "100%"
