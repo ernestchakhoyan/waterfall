@@ -3,7 +3,8 @@ import {
     StyleSheet,
     TouchableOpacity,
     View,
-    Text
+    Text,
+    Platform
 } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import CardFront from "./CardFront";
@@ -70,6 +71,7 @@ function CardSwiper({ deck }) {
                 disableLeftSwipe={!disabled}
                 disableRightSwipe={!disabled}
                 disableTopSwipe={!disabled}
+                useViewOverflow={Platform.OS === 'ios'}
             >
             </Swiper>
         </View>

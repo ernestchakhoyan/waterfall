@@ -27,8 +27,10 @@ function GameScreen({navigation}) {
     }
 
     React.useEffect(() => {
-        const deck = shuffledDeck();
-        setDeck(deck);
+        if(deck.length === 0){
+            const cards = shuffledDeck();
+            setDeck(cards);
+        }
     }, []);
 
     return (

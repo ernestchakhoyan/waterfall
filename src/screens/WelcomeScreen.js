@@ -15,19 +15,21 @@ import {
 import AppLogo from "../assets/images/app_logo.svg";
 
 function WelcomeScreen({ navigation }) {
-    const {state: {gameIsStarted}, startGame} = React.useContext(GameContext);
+    const { state: { gameIsStarted }, startGame } = React.useContext(GameContext);
 
     const handleGameStart = () => {
-        startGame();
-        navigation.navigate("Game")
-    }
+        if (!gameIsStarted) {
+            startGame();
+        }
+        navigation.navigate("Game");
+    };
 
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.title}>Welcome to Waterfall Game!</Text>
                 <View style={styles.logo}>
-                    <AppLogo height={80} width={80}/>
+                    <AppLogo height={80} width={80} />
                 </View>
             </View>
             <View style={styles.buttonContainer}>

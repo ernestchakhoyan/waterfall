@@ -33,6 +33,13 @@ function GameRulesScreen() {
                 </Text>
             </View>
             <View style={styles.content}>
+                <View>
+                    <Text style={styles.setup}>
+                        The cards are shuffled and the liquor is placed in the center of the table.
+                        Each person then draws a card and must act out each card based on the rules. Then he/she gives the device to the player next to him/her.
+                        Game is finished when all 52 cards are drawn.
+                    </Text>
+                </View>
                 <FlatList
                     data={rules}
                     renderItem={({ item }) => <RuleItem title={item.title} description={item.description} />}
@@ -92,6 +99,13 @@ const styles = StyleSheet.create({
     ruleTitle: {
         color: colors.primarySoft,
         fontSize: sizes.titleFontSizeSm,
+        fontWeight: "bold"
+    },
+    setup: {
+        fontSize: sizes.fontSize,
+        marginVertical: sizes.spacer,
+        fontFamily: "roboto-regular",
+        color: colors.secondary,
         fontWeight: "bold"
     }
 });
