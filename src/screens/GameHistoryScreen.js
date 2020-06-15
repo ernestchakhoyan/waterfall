@@ -30,6 +30,7 @@ const HistoryItem = ({ value }) => {
 
 function GameHistoryScreen() {
     const { state: { history } } = React.useContext(GameContext);
+    const remainingCards = 52 - history.length;
 
     return (
         <View style={styles.container}>
@@ -41,6 +42,7 @@ function GameHistoryScreen() {
             {history.length > 0
                 ? (
                     <View style={styles.content}>
+                        <Text style={styles.remainingText}>{remainingCards} {`card${remainingCards > 1 ? "s" : ""}`} remaining</Text>
                         <FlatList
                             data={history}
                             renderItem={({ item }) => <HistoryItem value={item.value} />}
@@ -88,6 +90,13 @@ const styles = StyleSheet.create({
         fontFamily: "roboto-regular",
         color: colors.secondary,
         textTransform: "uppercase",
+        fontWeight: "bold"
+    },
+    remainingText: {
+        fontSize: sizes.fontSize,
+        marginVertical: sizes.spacer,
+        fontFamily: "roboto-regular",
+        color: colors.secondary,
         fontWeight: "bold"
     },
     content: {

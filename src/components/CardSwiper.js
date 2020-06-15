@@ -72,13 +72,6 @@ function CardSwiper({ deck }) {
                 disableTopSwipe={!disabled}
             >
             </Swiper>
-            <View style={styles.remainingText}>
-                {
-                    remainingCards
-                        ? <Text>{remainingCards} {`card${remainingCards === 1 ? "" : "s"}`} remaining</Text>
-                        : null
-                }
-            </View>
         </View>
     );
 }
@@ -103,11 +96,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "transparent"
-    },
-    remainingText: {
-        position: "absolute",
-        bottom: 0,
-        left: 30
     },
     emptyView: {
         marginTop: sizes.spacer * 3,

@@ -35,6 +35,7 @@ function GameScreen({navigation}) {
         <SafeAreaView forceInset={{ top: "always" }}>
             <LinearGradient
                 colors={[ `${colors.primarySoft}`, `${colors.primary}` ]}
+                style={styles.container}
             >
                 <TouchableOpacity
                     style={styles.button}
@@ -42,7 +43,7 @@ function GameScreen({navigation}) {
                 >
                     <Text style={styles.text}>New game</Text>
                 </TouchableOpacity>
-                <View style={styles.container}>
+                <View style={styles.content}>
                     <CardSwiper deck={deck || []} />
                 </View>
             </LinearGradient>
@@ -63,11 +64,10 @@ GameScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
     container: {
-        height: "100%",
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
-        zIndex: -1
+        height: "100%"
     },
     swiperContainer: {
         height: "100%",
@@ -86,10 +86,8 @@ const styles = StyleSheet.create({
         borderColor: "#000",
         padding: sizes.spacer,
         borderRadius: 4,
-        marginTop: sizes.spacer,
-        position: "absolute",
-        right: sizes.spacer,
-        zIndex: 999999
+        marginTop: sizes.spacer
+
     },
     text: {
         color: "#fff",
