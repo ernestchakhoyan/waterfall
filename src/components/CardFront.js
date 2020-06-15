@@ -114,7 +114,11 @@ const styles = StyleSheet.create({
     },
     bottomValue: {
         bottom: 15,
-        right: 15
+        right: 15,
+        transform: [
+            { rotateY: "-180deg" },
+            { scaleX: 1 }
+        ]
     },
     cardLogo: {
         flexDirection: "row",
