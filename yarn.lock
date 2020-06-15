@@ -4722,6 +4722,13 @@ react-native-card-flip@^1.0.7:
     prop-types "15.5.10"
     react-lifecycles-compat "^3.0.4"
 
+react-native-deck-swiper@^1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/react-native-deck-swiper/-/react-native-deck-swiper-1.6.7.tgz#598e4835c0f14b505a1fb0534ae8d667307e693b"
+  integrity sha512-oWPdCFq/RCQ5i0adkiIXO3fEwKTQaF1i08FvrfZx0s2yjvwE2LN9T6iJtvU7eokvsqwoIAmJw/xg8BQyueSmVA==
+  dependencies:
+    prop-types "15.5.10"
+
 react-native-gesture-handler@~1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
@@ -4783,6 +4790,11 @@ react-native-tab-view@^2.11.0:
   version "2.14.4"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.14.4.tgz#740007e62c8723c6813b8c8a05caaaf82c816620"
   integrity sha512-oqkCflPFuZwDTbyY2WaN0377akSsmcttuYACR9LT7htZfO/tKR2Z/ynj1tbv2cz2esGuVICoga9cetN1lPimog==
+
+react-native-view-overflow@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-view-overflow/-/react-native-view-overflow-0.0.5.tgz#56c49f0f7cdb9fd145de241d6f6bf4cfe5660915"
+  integrity sha512-p/peyU3IC7M84bZEz2K7hpLrKBPUT3W7/+wnXjGw40hX/Iaj0OmOqJI6mJcBUlpcHJvGYbx2OOpPZa4+hwJC6w==
 
 react-native-view-shot@3.1.2:
   version "3.1.2"
