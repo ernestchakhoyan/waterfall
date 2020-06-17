@@ -1,11 +1,12 @@
 {
   "expo": {
     "name": "waterfall",
+    "description": "A digital twist on the classic drinking game! Waterfall  is a simple but beautiful app when you dont have a deck of card.",
     "slug": "waterfall",
+    "privacy": "public",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +14,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +23,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.chakhoyan.waterfall",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "permissions": [],
+      "package": "com.chakhoyan.waterfall",
+      "versionCode": 1
     },
     "packagerOpts": {
       "config": "metro.config.js",
